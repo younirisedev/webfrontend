@@ -1,0 +1,115 @@
+/* Degrees.css */
+
+.degrees-section {
+    padding: 40px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #09f7b0;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+
+/* Level Header Styles */
+
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #09f7b0;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background 0.3s;
+}
+
+.level-header:hover {
+    background: #06c89f;
+}
+
+.level-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+}
+
+
+/* Cards Container */
+
+.degree-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* Individual Card */
+
+.degree-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.degree-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.degree-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.degree-stream {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.degree-info {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+
+/* Highlight special degrees */
+
+.highlight {
+    border: 2px solid #09f7b0;
+    background: #e0fdf4;
+}
+
+
+/* Button Styles */
+
+.degree-btn {
+    background-color: #09f7b0;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.degree-btn:hover {
+    background-color: #06c89f;
+}

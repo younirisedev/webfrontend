@@ -1,0 +1,156 @@
+/*--------head------------*/
+
+.hero {
+    padding-top: 50px;
+    /* Adjusted so content doesn't hide under navbar */
+}
+
+.head {
+    padding: 0px 0;
+    color: #09f7b0;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+}
+
+.logo h1 {
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.head .icon {
+    margin-left: 10px;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-text h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #032477;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-text span {
+    font-size: 13px;
+    color: rgba(4, 4, 138, 0.85);
+    letter-spacing: 1px;
+}
+
+
+/*--------navbar/header------------*/
+
+header {
+    background-color: rgba(17, 30, 67, 0.908);
+    /* Light transparent navy tint */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    /* Removed fixed to make it non-sticky */
+    width: 100%;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease;
+    padding: 0;
+    /* optional: remove extra spacing */
+}
+
+header .nav {
+    display: flex !important;
+}
+
+header ul {
+    padding: 15px 40px;
+    margin: 0;
+}
+
+header li {
+    margin-right: 40px;
+    list-style: none;
+}
+
+header ul li a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header ul li a:hover {
+    color: #22c55e;
+    /* Green hover effect */
+}
+
+.toggle {
+    display: none;
+}
+
+
+/*--------responsive header/navbar------------*/
+
+@media screen and (max-width: 768px) {
+    header {
+        background-color: rgba(30, 178, 166, 0.5);
+        backdrop-filter: blur(10px);
+        position: relative;
+        /* keep it non-sticky */
+    }
+    header ul.flexSB {
+        display: none;
+    }
+    header ul li {
+        margin-bottom: 20px;
+    }
+    .toggle {
+        display: block;
+        background: none;
+        color: #fff;
+        font-size: 30px;
+        position: absolute;
+        right: 0;
+        top: -20px;
+    }
+    .mobile-nav {
+        position: absolute;
+        top: 7vh;
+        left: 0;
+        width: 100%;
+        background-color: rgba(30, 178, 166, 0.6);
+        backdrop-filter: blur(6px);
+    }
+}
+
+
+/* --- Login/Register Buttons --- */
+
+.head-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.auth-buttons button {
+    background: linear-gradient(90deg, #22c55e, #3b82f6);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+.auth-buttons .btn-register {
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+}
