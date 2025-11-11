@@ -40,9 +40,9 @@ const Globe = () => {
 
     const getGearShape = () => {
       const coords = [];
-      const teeth = 12;
       const inner = 100;
       const outer = 130;
+      // Removed unused variable "teeth"
       for (let i = 0; i < TOTAL_POINTS; i++) {
         const t = (i / TOTAL_POINTS) * 2 * Math.PI;
         const r = i % 2 === 0 ? outer : inner;
@@ -78,7 +78,7 @@ const Globe = () => {
 
     const getSpiral = () => {
       const coords = [];
-      const spiralTurns = 4;
+      // Removed unused variable "spiralTurns"
       for (let i = 0; i < TOTAL_POINTS; i++) {
         const angle = 0.2 * i;
         const radius = 5 + i * 0.5;
@@ -89,13 +89,13 @@ const Globe = () => {
       return coords;
     };
 
-    function getShapeCoords(type) {
+    const getShapeCoords = (type) => {
       if (type === "globe") return getGlobePoints();
       if (type === "gear") return getGearShape();
       if (type === "face") return getFaceShape();
       if (type === "spiral") return getSpiral();
       return [];
-    }
+    };
 
     points = Array.from({ length: TOTAL_POINTS }, () => ({
       x: Math.random() * size,
@@ -107,7 +107,7 @@ const Globe = () => {
       char: CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)],
     }));
 
-    function updateTargets() {
+    const updateTargets = () => {
       const shape = STATES[shapeIndex];
       const targetPoints = getShapeCoords(shape);
       for (let i = 0; i < points.length; i++) {
@@ -116,7 +116,7 @@ const Globe = () => {
         p.tx = target.x;
         p.ty = target.y;
       }
-    }
+    };
 
     updateTargets();
 
@@ -151,6 +151,8 @@ const Globe = () => {
       cancelAnimationFrame(animationId);
       canvas.removeEventListener("click", handleClick);
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shapeIndex]);
 
   return (
