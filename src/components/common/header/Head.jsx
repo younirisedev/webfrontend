@@ -8,7 +8,7 @@ const Head = () => {
         {/* Logo Section */}
         <div className="logo flex">
           <img
-            src="/images/logo.png" // ✅ place logo.png inside public/images/
+            src="/images/logo.png" 
             alt="Academia Logo"
             className="logo-img"
           />
@@ -20,11 +20,23 @@ const Head = () => {
 
         {/* Social Icons */}
         <div className="social">
-          <i className="fab fa-facebook-f icon"></i>
-          <i className="fab fa-instagram icon"></i>
-          <i className="fab fa-twitter icon"></i>
-          <i className="fab fa-youtube icon"></i>
-        </div>
+  <a href="https://www.facebook.com/profile.php?id=61583162072571" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-facebook-f icon"></i>
+  </a>
+  <a href="https://www.instagram.com/youniriseeducation/" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-instagram icon"></i>
+  </a>
+  <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-twitter icon"></i>
+  </a>
+  <a href="https://www.youtube.com/yourchannel" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-youtube icon"></i>
+  </a>
+  <a href="https://www.linkedin.com/company/younirise-education/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-linkedin-in icon"></i>
+  </a>
+</div>
+
       </div>
     </section>
   );

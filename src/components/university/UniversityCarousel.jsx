@@ -3,13 +3,14 @@ import Slider from "react-slick";
 import "./UniversityCarousel.css";
 
 const universities = [
-  { name: "Oxford University", logo: "/images/universities/oxford.png" },
-  { name: "Harvard University", logo: "/images/universities/harvard.png" },
-  { name: "Stanford University", logo: "/images/universities/stanford.png" },
-  { name: "MIT", logo: "/images/universities/mit.png" },
-  { name: "Cambridge University", logo: "/images/universities/cambridge.png" },
-  { name: "University of Toronto", logo: "/images/universities/toronto.png" },
+  { name: "Dr APJ Abdul Kalam University", logo: "/images/universities/apj.jpeg" },
+  { name: "RKDF University", logo: "/images/universities/rkdf.jpg" },
+  { name: "Sri satya sai University of technology and medical sciences , Sehore", logo: "/images/universities/satya.png" },
+  { name: "Sikkim professional university ", logo: "/images/universities/sikkim uni.jpeg" },
+  { name: "Bossse board", logo: "/images/universities/Bosse.jpg" },
+  { name: "Smolensk State Medical University", logo: "/images/universities/Smolensk.jpeg" },
 ];
+
 
 const UniversityCarousel = () => {
   const settings = {

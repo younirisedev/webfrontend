@@ -1,9 +1,9 @@
 import React from "react";
 import AboutCard from "../about/AboutCard";
-import Hblog from "./Hblog";
+
 import HAbout from "./HAbout";
 import Hero from "./hero/Hero";
-import Hprice from "./Hprice";
+
 import Testimonal from "./testimonal/Testimonal";
 import UniversityCarousel from "../university/UniversityCarousel";
 import Degrees from "../Degrees/Degrees"; // ✅ matches folder name "Degrees"
@@ -20,8 +20,7 @@ const Home = () => {
       <AboutCard />
       <HAbout />
       <Testimonal />
-      <Hblog />
-      <Hprice />
+      
        {/* Add Degrees section here */}
     </>
   );
