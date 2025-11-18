@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Younirise Education - Distant Education Consultancy</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles and configuration */
+        :root {
+            --primary-color: #2B3F6F; /* Deep Blue from Logo */
+            --secondary-color: #00A78E; /* Vibrant Green from Logo */
+            --accent-color: #3b82f6; /* A slightly lighter blue for secondary actions/highlights */
+        }
+        /* Custom Font (Inter) */
+        html {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        .hero-bg {
+            /* Using a gradient that aligns with logo colors */
+            background: linear-gradient(135deg, rgba(43, 63, 111, 0.95), rgba(0, 167, 142, 0.8)), url('https://placehold.co/1200x600/2B3F6F/ffffff?text=Your+Future+Starts+Here');
+            background-size: cover;
+            background-position: center;
+        }
+        .icon-svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* --- CSS for the infinite horizontal scroll carousel --- */
+        .carousel-track-container {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .scrolling-logos {
+            display: flex;
+            width: fit-content; /* Allows content to exceed viewport width */
+            animation: scroll 30s linear infinite; /* Adjust time for speed */
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .scrolling-logos:hover {
+            animation-play-state: paused; /* Pause on hover */
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Scrolls half the duplicated width */
+        }
+        
+        /* New container for the logo and name */
+        .uni-logo-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 180px; /* Increased width to accommodate name */
+            flex-shrink: 0;
+            margin-right: 40px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s;
+        }
+        .uni-logo-link:hover {
+            transform: translateY(-5px);
+        }
+        .logo-image {
+            height: 48px; /* Adjusted height for visibility */
+            width: 100%;
+            object-fit: contain;
+        }
+        /* --- End Carousel CSS --- */
+        /* --- End Carousel CSS --- */
+
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': 'var(--primary-color)',
+                        'secondary': 'var(--secondary-color)',
+                        'accent': 'var(--accent-color)', /* Added for alternative highlights */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation Bar --><header class="sticky top-0 z-50 bg-white shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-primary">
+                <!-- Younirise Education Logo --><img src="logo.png" alt="Younirise Education" class="h-10 sm:h-12 w-auto">Younirise Education
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#services" class="text-gray-600 hover:text-secondary transition duration-300">Services</a>
+                <a href="#courses" class="text-gray-600 hover:text-secondary transition duration-300">Courses</a>
+                <a href="#about" class="text-gray-600 hover:text-secondary transition duration-300">Why Us</a>
+                <a href="#contact" class="text-white px-4 py-2 bg-secondary rounded-full hover:bg-primary transition duration-300 shadow-md">Get Started</a>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) --><button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Dropdown --><div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-xl py-2 border-t border-gray-100">
+            <a href="#services" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Services</a>
+            <a href="#courses" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Courses</a>
+            <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Why Us</a>
+            <a href="#contact" class="block px-4 py-2 text-secondary font-semibold hover:bg-gray-50">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section --><section class="hero-bg text-white py-20 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
+                Your Global Path to Distant Education Success
+            </h1>
+            <p class="text-xl sm:text-2xl font-light mb-8 max-w-3xl mx-auto">
+                We guide you through the complexities of online learning, connecting you with top-tier universities and courses worldwide.
+            </p>
+            <a href="#contact" class="inline-block px-10 py-3 text-lg font-semibold bg-white text-primary rounded-full shadow-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                Book Your Free Consultation
+            </a>
+        </div>
+    </section>
+
+   <!-- University Partner Carousel Section --><section id="partners" class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-center text-lg font-semibold text-gray-400 uppercase mb-4">Our Trusted Global Partners</h3>
+        </div>
+        
+        <div class="carousel-track-container">
+            <!-- Logos duplicated for infinite scroll effect --><div class="scrolling-logos">
+                
+                <!-- Set of Logos (First half) -->
+                <a href="https://www.aku.ac.in/website" target="_blank" class="uni-logo-link group">
+                    <img src="apj.jpeg" alt="Uni Global Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">A.P.J Abdul Kalam University</div>
+                </a>
+                <a href="https://www.rkdf.ac.in/" target="_blank" class="uni-logo-link group">
+                    <img src="rkdf.jpg" alt="e-Academy Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Rkdf University</div>
+                </a>
+                <a href="https://sssutms.co.in/cms/Website" target="_blank" class="uni-logo-link group">
+                    <img src="satya.png" alt="Virtual U Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Sri Satya Sai University of Technology and Medical Sciences</div>
+                </a>
+                <a href="https://www.spu.ac/" target="_blank" class="uni-logo-link group">
+                    <img src="sikkim uni.jpeg" alt="Digital Ed Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Sikkim Professional University </div>
+                </a>
+                <a href="https://www.bosse.ac.in/" target="_blank" class="uni-logo-link group">
+                    <img src="Bosse.jpg" alt="World Institute Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Board of Open Schooling and Skill Education</div>
+                </a>
+                <a href="https://sgmu.info/" target="_blank" class="uni-logo-link group">
+                    <img src="Smolensk.jpeg" alt="Online Hub Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Smolensk State Medical University </div>
+                </a>
+                
+                <!-- Duplicated Set of Logos (Second half) for seamless loop -->
+                <a href="https://www.aku.ac.in/website" target="_blank" class="uni-logo-link group">
+                    <img src="apj.jpeg" alt="Uni Global Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">A.P.J Abdul Kalam University</div>
+                </a>
+                <a href="https://www.rkdf.ac.in/" target="_blank" class="uni-logo-link group">
+                    <img src="rkdf.jpg" alt="e-Academy Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Rkdf University</div>
+                </a>
+                <a href="https://sssutms.co.in/cms/Website" target="_blank" class="uni-logo-link group">
+                    <img src="satya.png" alt="Virtual U Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Sri Satya Sai University of Technology and Medical Sciences</div>
+                </a>
+                <a href="https://www.spu.ac/" target="_blank" class="uni-logo-link group">
+                    <img src="sikkim uni.jpeg" alt="Digital Ed Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Sikkim Professional University </div>
+                </a>
+                <a href="https://www.bosse.ac.in/" target="_blank" class="uni-logo-link group">
+                    <img src="Bosse.jpg" alt="World Institute Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Board of Open Schooling and Skill Education</div>
+                </a>
+                <a href="https://sgmu.info/" target="_blank" class="uni-logo-link group">
+                    <img src="Smolensk.jpeg" alt="Online Hub Logo" class="logo-image object-contain mb-1">
+                    <div class="text-xs font-semibold text-gray-700 group-hover:text-secondary transition duration-200">Smolensk State Medical University </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section --><section id="services" class="py-16 sm:py-24 bg-gray-50"> 
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-primary mb-4">Our Services</h2>
+            <p class="text-center text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                Comprehensive support for every step of your distant learning journey.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1: Course Selection --><div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                    <div class="p-3 inline-block bg-secondary/10 text-secondary rounded-full mb-4">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l10 5.5v11L12 22 2 17.5v-11L12 2zM12 18v-6"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Personalized Course Match</h3>
+                    <p class="text-gray-600 text-sm">Find the perfect online degree or certificate that fits your career goals and schedule from thousands of accredited institutions.</p>
+                </div>
+
+                <!-- Service 2: Application Support --><div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                    <div class="p-3 inline-block bg-secondary/10 text-secondary rounded-full mb-4">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">University Application</h3>
+                    <p class="text-gray-600 text-sm">We handle all documentation, admission essays, and deadlines, ensuring a smooth and error-free application process.</p>
+                </div>
+
+                <!-- Service 3: Financial Guidance --><div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                    <div class="p-3 inline-block bg-secondary/10 text-secondary rounded-full mb-4">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Scholarship & Funding</h3>
+                    <p class="text-gray-600 text-sm">Identify and apply for financial aid, scholarships, and grants specifically available to distant learning students.</p>
+                </div>
+
+                <!-- Service 4: Post-Enrollment Support --><div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                    <div class="p-3 inline-block bg-secondary/10 text-secondary rounded-full mb-4">
+                        <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Study Readiness & Tech</h3>
+                    <p class="text-gray-600 text-sm">Guidance on setting up your home study environment and mastering the necessary virtual learning platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Course Offerings Section (Level Wise Tables) --><section id="courses" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-primary mb-4">Explore Courses By Level</h2>
+            <p class="text-center text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+                Click a level below to view a detailed catalog of accredited distant learning programs we support.
+            </p>
+
+            <!-- Course Level Cards Container (Flex layout for responsiveness) -->
+            <div id="course-cards" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <!-- Cards will be dynamically injected here by JavaScript -->
+            </div>
+
+            <!-- Course Details Table Container -->
+            <div id="course-listings" class="space-y-8">
+                <!-- Course tables will be dynamically injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+
+                
+    <!-- Why Choose Us Section --><section id="about" class="py-16 sm:py-24 bg-gray-100"> 
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">Why Trust Younirise Education?</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Our specialized focus on distant education means we understand your unique needs better than anyone.
+                    </p>
+
+                    <ul class="space-y-6">
+                        <li class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 p-2 bg-secondary/20 text-secondary rounded-full">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 9L8 3l-2 9H2"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-900">100% Online Focus</h4>
+                                <p class="text-gray-600 text-sm">We only consult on distance and online programs, ensuring our expertise is current and relevant to virtual learners.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 p-2 bg-secondary/20 text-secondary rounded-full">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-900">Dedicated Expert Advisor</h4>
+                                <p class="text-gray-600 text-sm">You'll work one-on-one with a dedicated advisor from initial inquiry to final enrollment.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 p-2 bg-secondary/20 text-secondary rounded-full">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-900">Global University Network</h4>
+                                <p class="text-gray-600 text-sm">Access to information on over 500 accredited distant learning programs globally.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-12 lg:mt-0">
+                    <img src="https://placehold.co/600x400/00A78E/ffffff?text=Trusted+Global+Network" alt="Global distant learning network" class="rounded-xl shadow-2xl w-full h-auto object-cover border-4 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section --><section id="contact" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-primary mb-4">Ready to Start?</h2>
+            <p class="text-center text-xl text-gray-600 mb-10">
+                Send us a message and a specialist will contact you within one business day.
+            </p>
+
+            <form id="consultation-form" class="bg-gray-50 p-6 sm:p-10 rounded-xl shadow-2xl border border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-secondary focus:border-secondary transition duration-150">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" required
+                            class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-secondary focus:border-secondary transition duration-150">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Area of Interest</label>
+                    <select id="interest" name="interest" required
+                        class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-secondary focus:border-secondary transition duration-150 bg-white">
+                        <option value="">Select an option</option>
+                        <option value="Undergraduate">Undergraduate Degree</option>
+                        <option value="Postgraduate">Postgraduate Degree (Masters/PhD)</option>
+                        <option value="Certification">Professional Certification</option>
+                        <option value="General">General Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help you?</label>
+                    <textarea id="message" name="message" rows="4" required
+                        class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-secondary focus:border-secondary transition duration-150"></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn"
+                    class="w-full px-4 py-3 text-lg font-semibold text-white bg-primary rounded-lg shadow-md hover:bg-secondary transition duration-300 transform hover:scale-[1.01] disabled:bg-gray-400">
+                    Submit Inquiry
+                </button>
+            </form>
+
+            <!-- Success/Error Message Display --><div id="form-message" class="mt-6 p-4 rounded-lg text-center font-medium hidden" role="alert"></div>
+        </div>
+    </section>
+
+    <!-- Footer --><footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Younirise Education</h3>
+                <p class="text-sm text-white/80">Empowering your future, one click at a time.</p>
+            </div>
+
+            <!-- Social Media Icons --><div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.facebook.com/profile.php?id=61583162072571" class="text-white hover:text-secondary transition duration-300">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.588-1.333h2.412v-3h-3.979c-3.121 0-4.221 1.556-4.221 4.585v2.415z"/></svg>
+                    <span class="sr-only">Facebook</span>
+                </a>
+                <a href="#" class="text-white hover:text-secondary transition duration-300">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.633 7.997c.413 1.706.037 3.32-.782 4.707-1.125 1.83-2.909 2.76-4.938 2.76H11.66c-.361 0-.583-.16-.763-.305-.183-.146-.35-.395-.455-.63-.125-.29-.168-.535-.168-.78 0-.44.108-.888.324-1.34.218-.452.56-.91.972-1.378.41-.468.75-.762 1.055-1.056.402-.38.74-.694 1.05-.98.31-.286.536-.456.71-.527.208-.083.39-.083.565-.083.333 0 .618.06.85.18.23.12.396.28.502.48.106.2.146.434.146.68 0 .227-.04.453-.122.68-.082.227-.224.48-.423.73-.2.25-.458.53-.746.81l-.328.328-1.077 1.076c-.203.203-.303.4-.303.626 0 .227.103.42.3.62.2.2.45.3.74.3.29 0 .58-.1 .86-.3l.77-.77.77-.77c.36-.36.636-.61.83-.81.196-.2.34-.36.43-.48.09-.12.13-.2.13-.24 0-.15-.042-.29-.13-.42-.086-.13-.21-.24-.37-.34-.16-.1-.36-.15-.6-.15-.175 0-.34.03-.49.09-.15.06-.29.13-.41.21-.12.08-.23.16-.32.24-.09.08-.18.15-.26.2ZM24 4.557c-.883.39-1.83.65-2.825.775 1.01-.605 1.786-1.555 2.157-2.671-.945.56-1.985.96-3.09 1.18c-.89-.94-2.16-1.52-3.566-1.52-2.695 0-4.887 2.19-4.887 4.888 0 .38.045.75.126 1.104-4.06-.2-7.675-2.14-10.09-5.09-.425.72-.66 1.56-.66 2.47 0 1.69.865 3.195 2.188 4.07-.8-.02-1.555-.245-2.22-.615-.05.015-.1.02-.15.02-.68 0-1.335-.2-1.94-.53-.01.02-.02.04-.02.06.0 2.36 1.68 4.34 3.91 4.79-.4.1-.82.15-1.255.15-.31 0-.6-.03-.885-.08.635 1.945 2.487 3.36 4.685 3.4-.67.53-1.51 1.04-2.39 1.04-1.55 0-2.005-1.05-2.285-1.63.17.02.34.03.51.03 2.92 0 5.1-1.97 5.95-4.57 1.06-2.85 2.58-5.74 2.58-6.19 0-.21-.02-.4-.05-.59.73-.55 1.37-1.24 1.88-2.02z"/></svg>
+                    <span class="sr-only">Twitter</span>
+                </a>
+                <a href="https://www.instagram.com/youniriseeducation/" class="text-white hover:text-secondary transition duration-300">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.068 1.645.068 4.85 0 3.204-.01 3.584-.068 4.85-1.12 3.228-2.662 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.01-4.85-.068-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.068-1.644-.068-4.85 0-3.204.01-3.584.068-4.85 1.12-3.228 2.662-4.771 4.919-4.919 1.266-.057 1.645-.068 4.85-.068zm0-2.163c-3.259 0-3.667.014-4.947.072C2.703.192.158 2.502.014 4.947.006 6.227 0 6.636 0 9.897c0 3.26.006 3.668.014 4.948.144 2.446 2.454 4.99 4.947 5.137 1.28.007 1.688.014 4.948.014 3.259 0 3.668-.007 4.948-.014 2.445-.147 4.754-2.691 4.901-5.138.007-1.28.014-1.688.014-4.947 0-3.26-.007-3.668-.014-4.948-.147-2.445-2.691-4.754-5.138-4.901-1.28-.007-1.688-.014-4.947-.014zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.44-.644-1.44-1.44s.644-1.44 1.44-1.44 1.44.644 1.44 1.44-.644 1.44-1.44 1.44z"/></svg>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/younirise-education/" class="text-white hover:text-secondary transition duration-300">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38-.109-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 6.5h-5v13h5v-13zm9.293 0h-4.004v13h4.004v-6.577c0-3.636 4.38-3.523 4.38 0v6.577h4.017v-7.969c0-4.167-4.667-4.041-5.068-2.006z"/></svg>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+            </div>
+
+            <div class="flex justify-center space-x-6 text-sm mb-6">
+                <a href="#services" class="hover:underline">Services</a>
+                <a href="#courses" class="hover:underline">Courses</a>
+                <a href="#about" class="hover:underline">Why Us</a>
+                <a href="#" class="hover:underline">Privacy Policy</a>
+            </div>
+            <p class="text-sm text-white/70">© 2025 Younirise Education. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+ // --- Course Data ---
+        const courseData = [
+            {
+                level: "Diploma",
+                icon: '🎓',
+                degrees: [
+                    { name: "Polytechnic Diploma (Engg.)", stream: "Civil, Mechanical, Electrical", body: "AICTE / State Technical Board", duration: "3 years" },
+                    { name: "D.Pharm (Diploma in Pharmacy)", stream: "Pharmacy", body: "PCI", duration: "2 years" },
+                    { name: "GNM (General Nursing & Midwifery)", stream: "Nursing", body: "INC", duration: "3 years" },
+                    { name: "ANM (Auxiliary Nursing Midwifery)", stream: "Nursing Assistant", body: "INC", duration: "2 years" },
+                    { name: "D.Ed (Diploma in Education)", stream: "Teaching", body: "NCTE", duration: "2 years" },
+                    { name: "Hotel Management Diploma", stream: "Hospitality", body: "AICTE / NCHMCT", duration: "3 years" },
+                    { name: "Fine Arts Diploma", stream: "Art, Design", body: "UGC / State Board", duration: "2 years" },
+                    { name: "Journalism / Mass Comm. Diploma", stream: "Media, Reporting", body: "UGC / AICTE", duration: "1 year" },
+                    { name: "Fashion Designing Diploma", stream: "Fashion, Apparel", body: "UGC / AICTE / Private", duration: "1–3 years" },
+                    { name: "Paramedical Diploma", stream: "Radiology, Lab Tech", body: "State Medical Faculty / NMC", duration: "2–3 years" },
+                    { name: "Aviation / Cabin Crew", stream: "Aviation, Travel", body: "DGCA", duration: "1 year" }
+                ]
+            },
+            {
+                level: "Undergraduate (Bachelor’s Degrees)",
+                icon: '📚',
+                degrees: [
+                    { name: "B.A. (Bachelor of Arts)", stream: "Political Science, History, English, Sociology", body: "UGC", duration: "3 years" },
+                    { name: "B.Sc. (Bachelor of Science)", stream: "Physics, Chemistry, Biology, Computer Science", body: "UGC", duration: "3 years" },
+                    { name: "B.Com (Bachelor of Commerce)", stream: "Accountancy, Finance, Business Studies", body: "UGC", duration: "3 years" },
+                    { name: "BBA (Bachelor of Business Administration)", stream: "Management, HR, Marketing", body: "UGC / AICTE", duration: "3 years", highlight: true },
+                    { name: "BCA (Bachelor of Computer Applications)", stream: "Software, Programming, IT", body: "UGC / AICTE", duration: "3 years" },
+                    { name: "B.Tech / B.E.", stream: "Mechanical, Civil, IT, Electrical", body: "AICTE", duration: "4 years", highlight: true },
+                    { name: "MBBS", stream: "General Medicine", body: "NMC", duration: "5.5 years", highlight: true },
+                    { name: "BDS", stream: "Dentistry", body: "DCI", duration: "5 years" },
+                    { name: "BAMS", stream: "Ayurveda", body: "NCISM", duration: "5.5 years" },
+                    { name: "BHMS", stream: "Homeopathy", body: "NCH", duration: "5.5 years" },
+                    { name: "B.Pharm", stream: "Pharmacy", body: "PCI", duration: "4 years" },
+                    { name: "B.Arch", stream: "Architecture, Design", body: "COA", duration: "5 years" },
+                    { name: "LLB", stream: "Law, Legal Studies", body: "BCI", duration: "3–5 years", highlight: true },
+                    { name: "B.Ed", stream: "Education, Teaching", body: "NCTE", duration: "2 years" },
+                    { name: "BFA", stream: "Painting, Sculpture, Applied Arts", body: "UGC / State Universities", duration: "4 years" },
+                    { name: "B.P.Ed", stream: "Sports, Physical Training", body: "NCTE", duration: "2 years" },
+                    { name: "B.Voc", stream: "Skill-based: Tourism, Healthcare, IT", body: "UGC (NSQF framework)", duration: "3 years" }
+                ]
+            },
+            {
+                level: "Postgraduate (Master’s Degrees)",
+                icon: '🔬',
+                degrees: [
+                    { name: "M.A.", stream: "Political Science, English, History, Psychology", body: "UGC", duration: "2 years" },
+                    { name: "M.Sc.", stream: "Physics, Chemistry, Biology, IT", body: "UGC / AICTE", duration: "2 years" },
+                    { name: "M.Com", stream: "Business, Accounting, Taxation", body: "UGC", duration: "2 years" },
+                    { name: "MBA", stream: "Finance, HR, Marketing, Operations", body: "AICTE / UGC", duration: "2 years", highlight: true },
+                    { name: "MCA", stream: "Software, Data Science, IT", body: "AICTE / UGC", duration: "2 years" },
+                    { name: "M.Tech / M.E.", stream: "Civil, Mechanical, AI, Electrical", body: "AICTE", duration: "2 years", highlight: true },
+                    { name: "M.Pharm", stream: "Pharmaceutics, Pharmacology", body: "PCI", duration: "2 years" },
+                    { name: "M.Arch", stream: "Urban Design, Planning", body: "COA", duration: "2 years" },
+                    { name: "LLM", stream: "Constitutional, International, Criminal Law", body: "BCI", duration: "1–2 years", highlight: true },
+                    { name: "MD / MS", stream: "Medical Specializations", body: "NMC", duration: "3 years" },
+                    { name: "MDS", stream: "Dental Surgery, Orthodontics", body: "DCI", duration: "3 years" },
+                    { name: "M.Ed", stream: "Educational Psychology, Pedagogy", body: "NCTE", duration: "2 years" },
+                    { name: "MFA", stream: "Visual Arts, Applied Arts", body: "UGC / State Universities", duration: "2 years" },
+                    { name: "MSW", stream: "Social Welfare, NGOs", body: "UGC", duration: "2 years" },
+                    { name: "MPA", stream: "Public Policy, Governance", body: "UGC", duration: "2 years" },
+                    { name: "M.Voc", stream: "Skill-based PG", body: "UGC (NSQF Framework)", duration: "2 years" },
+                    { name: "PG Diploma", stream: "Management, HR, Finance, Media", body: "AICTE / UGC", duration: "1–2 years" }
+                ]
+            },
+            {
+                level: "Doctoral & Research",
+                icon: '🧠',
+                degrees: [
+                    { name: "Ph.D.", stream: "All Disciplines", body: "UGC", duration: "3-5 years", highlight: true },
+                    { name: "D.Litt / D.Sc.", stream: "Advanced Research", body: "UGC Recognized Universities", duration: "Post-doctoral", highlight: true },
+                    { name: "M.Phil", stream: "Various", body: "UGC", duration: "Discontinued by NEP" }
+                ]
+            }
+        ];
+        
+        // Function to toggle the visibility of the course details table
+        function toggleCourseDetails(levelIndex) {
+            const allTables = document.querySelectorAll('.course-details-table');
+            const allCards = document.querySelectorAll('.course-level-card');
+            const targetTable = document.getElementById(`details-${levelIndex}`);
+            const targetCard = document.getElementById(`card-${levelIndex}`);
+            
+            // Check if the target is already active (visible)
+            const isAlreadyActive = targetTable && !targetTable.classList.contains('hidden');
+
+            // 1. Hide all tables and remove active class from all cards
+            allTables.forEach(table => {
+                table.classList.add('hidden');
+                table.classList.remove('opacity-100', 'translate-y-0');
+            });
+
+            allCards.forEach(card => {
+                card.classList.remove('bg-secondary', 'text-white', 'shadow-2xl');
+                card.classList.add('bg-gray-50', 'text-gray-800', 'shadow-lg');
+            });
+            
+            // 2. If it wasn't already active, show the target table and set active card class
+            if (!isAlreadyActive && targetTable) {
+                targetTable.classList.remove('hidden');
+                setTimeout(() => {
+                    targetTable.classList.add('opacity-100', 'translate-y-0');
+                }, 10); // Small delay to trigger CSS transition
+
+                targetCard.classList.remove('bg-gray-50', 'text-gray-800', 'shadow-lg');
+                targetCard.classList.add('bg-secondary', 'text-white', 'shadow-2xl');
+            }
+        }
+
+        // Function to dynamically render the course cards and tables
+        function renderCoursesTable() {
+            const cardContainer = document.getElementById('course-cards');
+            const tableContainer = document.getElementById('course-listings');
+            if (!cardContainer || !tableContainer) return;
+
+            let cardHtml = '';
+            let tableHtml = '';
+
+            courseData.forEach((levelData, index) => {
+                // --- 1. Generate Card HTML ---
+                cardHtml += `
+                    <div id="card-${index}" class="course-level-card p-4 rounded-xl shadow-lg border border-primary/20 bg-gray-50 text-gray-800 text-center cursor-pointer transition duration-300 transform hover:scale-[1.03]" onclick="toggleCourseDetails(${index})">
+                        <div class="text-4xl mb-1">${levelData.icon}</div>
+                        <h3 class="text-lg font-semibold">${levelData.level}</h3>
+                        <p class="text-xs mt-1">Click to view all programs</p>
+                    </div>
+                `;
+
+                // --- 2. Generate Table HTML (Hidden by default) ---
+                const degrees = levelData.degrees;
+                let tableRows = '';
+
+                degrees.forEach(degree => {
+                    const highlightClass = degree.highlight ? 'bg-secondary/10 font-semibold text-primary' : 'hover:bg-gray-50';
+                    
+                    const streamContent = degree.stream ? `<td class="p-4 text-sm text-gray-700">${degree.stream}</td>` : '<td class="p-4 text-sm text-gray-700">N/A</td>';
+
+                    tableRows += `
+                        <tr class="${highlightClass} border-b border-gray-100 transition duration-150">
+                            <td class="p-4 text-sm font-medium text-gray-900 flex items-center">
+                                ${degree.highlight ? '<span class="text-secondary mr-2">•</span>' : ''}
+                                ${degree.name}
+                            </td>
+                            ${streamContent}
+                            <td class="p-4 text-sm text-gray-700">${degree.duration}</td>
+                            <td class="p-4 text-sm text-gray-700">${degree.body}</td>
+                        </tr>
+                    `;
+                });
+
+                tableHtml += `
+                    <div id="details-${index}" class="course-details-table hidden opacity-0 translate-y-4">
+                        <div class="bg-gray-50 p-6 sm:p-8 rounded-xl shadow-xl border border-primary/10">
+                            <h3 class="text-2xl font-bold text-primary mb-6 border-b border-primary/20 pb-2">${levelData.level} Programs</h3>
+                            
+                            <div class="overflow-x-auto rounded-lg shadow-inner bg-white">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th scope="col" class="p-4 text-left text-sm font-medium uppercase tracking-wider">
+                                                Degree / Program
+                                            </th>
+                                            <th scope="col" class="p-4 text-left text-sm font-medium uppercase tracking-wider">
+                                                Major Streams
+                                            </th>
+                                            <th scope="col" class="p-4 text-left text-sm font-medium uppercase tracking-wider">
+                                                Duration
+                                            </th>
+                                            <th scope="col" class="p-4 text-left text-sm font-medium uppercase tracking-wider">
+                                                Accrediting Body
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-100">
+                                        ${tableRows}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-6 text-center">
+                                <a href="#contact" class="inline-block px-6 py-2 text-sm font-semibold text-white bg-secondary rounded-full hover:bg-primary transition duration-300 transform hover:scale-105">
+                                    Consult on ${levelData.level} Programs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cardContainer.innerHTML = cardHtml;
+            tableContainer.innerHTML = tableHtml;
+            
+            // Auto-open the first level (Diploma) on load
+            if (courseData.length > 0) {
+                toggleCourseDetails(0);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('consultation-form');
+            const formMessage = document.getElementById('form-message');
+            const submitBtn = document.getElementById('submit-btn');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // --- RENDER COURSES ---
+            renderCoursesTable();
+
+
+            // --- Mobile Menu Toggle ---
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+
+            // --- Form Submission Handler ---
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                formMessage.classList.add('hidden');
+
+                // Simulate form submission to a backend service (e.g., a serverless function)
+                // Replace this block with actual API call if using a backend
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                console.log('Form data collected:', data);
+                
+                // Simulate network delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                // --- Simulated Backend Response ---
+                const success = true; // Set to false to test error case
+                // --- End Simulated Backend Response ---
+
+                if (success) {
+                    formMessage.textContent = 'Thank you! Your inquiry has been submitted. We will contact you shortly.';
+                    formMessage.className = 'mt-6 p-4 rounded-lg text-center font-medium bg-green-100 text-green-800';
+                    form.reset();
+                } else {
+                    // This block would handle actual API errors
+                    formMessage.textContent = 'Error: Could not submit your request. Please try again later.';
+                    formMessage.className = 'mt-6 p-4 rounded-lg text-center font-medium bg-red-100 text-red-800';
+                }
+
+                formMessage.classList.remove('hidden');
+                submitBtn.textContent = 'Submit Inquiry';
+                submitBtn.disabled = false;
+            });
+
+        });
+    </script>
+</body>
+</html>
